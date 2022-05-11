@@ -10,7 +10,7 @@ import { useAuth } from "../../contexts/AuthContext"
 const SignIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const login = useAuth()
+  const { login } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -45,7 +45,7 @@ const SignIn = () => {
               <FormButton disabled={loading} className="w-100" type='submit'> Continue</FormButton>
             </Form>
             <div className="w-100 text-center mt-3">
-              <Link to="/forgot-password" color="black">Forgot Password?</Link>
+              <Link to="/forgotpassword" color="black">Forgot Password?</Link>
             </div>
             <div className="w-100 text-center mt-2">
               Need an account? <Link to="/signup">Sign Up</Link>
