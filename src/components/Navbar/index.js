@@ -3,8 +3,15 @@ import { FaBars } from 'react-icons/fa'
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements'
 import { IconContext } from 'react-icons'
 import { animateScroll as scroll } from 'react-scroll/modules'
+import { useAuth } from "../../contexts/AuthContext"
+import { useLocation } from 'react-router-dom'
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false)
+  const hideNav = () => {
+    if (useAuth == true) {
+      Navbar = false
+    }
+  }
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -19,6 +26,10 @@ const Navbar = ({ toggle }) => {
   }, []);
   const toggleHome = () => {
     scroll.scrollToTop();
+  }
+  const location = useLocation();
+  if (location.pathname === "/shopping") {
+    return null;
   }
   return (
     <>

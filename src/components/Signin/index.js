@@ -22,7 +22,7 @@ const SignIn = () => {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
+      history.push("/shopping")
     } catch {
       setError("Failed to log in")
     }
