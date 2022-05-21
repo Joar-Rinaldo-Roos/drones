@@ -33,7 +33,6 @@ const SignUp = () => {
     }
     setLoading(false)
   }
-
   return (
     <Container>
       <>
@@ -58,7 +57,6 @@ const SignUp = () => {
         </FormWrap>
       </>
     </Container>
-
   )
 }
 

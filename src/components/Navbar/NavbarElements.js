@@ -114,6 +114,25 @@ export const NavBtnLink = styled(LinkR)`
     color: '#010606';
 
   }
+`;
 
+export const AButton = styled.a`
+  border-radius: 50px;
+  background: green;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 
-`
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: white;
+    color: '#010606';
+
+  }
+`;

@@ -2,10 +2,12 @@ import CartItem from "../CartItem/CartItem";
 import { Wrapper } from "./Cart.styles";
 import { CartItemType } from "../App";
 import React, { useState } from "react";
-import { Button } from "../../ButtonElement";
 import { ArrowForward } from "../../HeroSection/HeroElements";
 import { ArrowRight } from "../../HeroSection/HeroElements";
-import { NavBtnLink, NavBtn } from "../../Navbar/NavbarElements";
+import { NavBtnLink, NavBtn, AButton } from "../../Navbar/NavbarElements";
+import Item from "../Item/Item";
+import { Button, Hidden } from "@material-ui/core";
+
 type Props = {
   cartItems: CartItemType[];
   addToCart: (clickedItem: CartItemType) => void;
@@ -15,12 +17,8 @@ type Props = {
 const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
   const calculateTotal = (items: CartItemType[]) =>
     items.reduce((ack: number, item) => ack + item.amount * item.price, 0);
-
-  const [hover, setHover] = useState(false);
-  const onHover = () => {
-    setHover(!hover);
-  };
-
+  if (cartItems.length === 0) {
+  }
   return (
     <Wrapper>
       <h2>Your Shopping Cart</h2>
@@ -35,7 +33,13 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
       ))}
       <h2>Total: ${calculateTotal(cartItems).toFixed(2)}</h2>
       <NavBtn>
-        <NavBtnLink to="/"> Checkout</NavBtnLink>
+        <Button
+          variant="contained"
+          disabled={cartItems.length === 0}
+          href="https://google.se"
+        >
+          Checkout
+        </Button>
       </NavBtn>
     </Wrapper>
   );
